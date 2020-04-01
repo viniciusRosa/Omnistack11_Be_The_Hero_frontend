@@ -6,12 +6,12 @@ import Register from './pages/register'
 
 
 export default function Routes() {
-    return (
-        <BrowserRouter>
-            <Switch>
-                <Route path='/' exact component={Logon} />
-                <Route path='/register' component={Register} />
-            </Switch>
-        </BrowserRouter>
-    )
+	return (
+		<BrowserRouter>
+			<Switch>
+				<Route path='/' exact component={Logon} />
+				<Route path='/register' component={Register} />
+			</Switch>
+		</BrowserRouter>
+	)
 }

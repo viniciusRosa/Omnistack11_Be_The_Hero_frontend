@@ -6,12 +6,12 @@ import logoImg from '../../assets/logo.svg';
 import heroesImg from '../../assets/heroes.png';
 
 function Register() {
-    return (
-        <>
-            <div className="logon-container">
-            </div>
-        </>
-    );
+	return (
+		<>
+			<div className="logon-container">
+			</div>
+		</>
+	);
 }
 
 export default Register;
