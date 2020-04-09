@@ -4,6 +4,7 @@ import './styles.css'
 
 import logoImg from '../../assets/logo.svg';
 import heroesImg from '../../assets/heroes.png';
+import { Link } from 'react-router-dom';
 
 function Logon() {
   return (
@@ -17,10 +18,10 @@ function Logon() {
             <input placeholder="Sua Id" />
             <button className='button' type='submit'>Entrar</button>
 
-            <a href="/register">
+            <Link to="/register">
               <FiLogIn size={16} color='#E02041' />
               Não tenho cadastro
-            </a>
+            </Link>
           </form>
         </section>
         <img src={heroesImg} alt="heroesimage" />
