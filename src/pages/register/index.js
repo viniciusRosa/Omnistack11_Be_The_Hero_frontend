@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { FiArrowLeft } from 'react-icons/fi'
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import api from '../../services/api'
 import './styles.css'
 import logoImg from '../../assets/logo.svg';
+
+
 
 function Register() {
 
@@ -14,8 +16,26 @@ function Register() {
 	const [city, setCity] = useState('');
 	const [uf, setUf] = useState('');
 
-	function handleRegister(e) {
+	const history = useHistory()
+;
+	async function handleRegister(e) {
 		e.preventDefault()
+		const data = {
+			name,
+			email,
+			whatsapp,
+			city,
+			uf
+		}
+
+		try {
+			const response = await api.post('/ongs', data);
+
+			alert(`Sei ID de acesso ${response.data.id}`)
+			history.push('/')
+		} catch (e) {
+			alert(`Erro, ${e}`)
+		}
 	}
 
 	return (
@@ -40,33 +60,33 @@ function Register() {
 							value={name}
 							onChange={e => setName(e.target.value)}
 						/>
-						<input 
-							type="text" 
-							placeholder="email" 
+						<input
+							type="text"
+							placeholder="email"
 							value={email}
 							onChange={e => setEmail(e.target.value)}
-							/>
-						<input 
-							type="text" 
+						/>
+						<input
+							type="text"
 							placeholder="Whatsapp"
 							value={whatsapp}
-							onChange={e => setWhatsapp(e.target.value)} 
-							/>
+							onChange={e => setWhatsapp(e.target.value)}
+						/>
 
 						<div className="input-group">
-							<input 
-								type="text" 
+							<input
+								type="text"
 								placeholder="Cidade"
 								value={city}
-								onChange={e => setCity(e.target.value)} 
-								/>
+								onChange={e => setCity(e.target.value)}
+							/>
 
-							<input 
-							type="text" 
-							placeholder="UF" 
-							style={{ width: 80 }} 
-							value={uf}
-							onChange={e => setUf(e.target.value)}/>
+							<input
+								type="text"
+								placeholder="UF"
+								style={{ width: 80 }}
+								value={uf}
+								onChange={e => setUf(e.target.value)} />
 						</div>
 
 						<button className="button" type="submit">Cadastrar</button>
