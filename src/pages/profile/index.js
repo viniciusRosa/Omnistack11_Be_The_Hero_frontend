@@ -7,12 +7,16 @@ import heroesImg from '../../assets/heroes.png';
 import { Link } from 'react-router-dom';
 
 function Profile() {
+
+  const ongName = localStorage.getItem('ongName');
+
+
   return (
     <>
       <div className="profile-container">
         <header>
             <img src={logoImg} alt="Be the hero"/>
-            <span>Vem vinda, ONG</span>
+            <span>Vem vinda, {ongName}</span>
 
             <Link className="button" to="/incidents/new">Cadastrar novo caso</Link>
             <button type="button">
